@@ -23,9 +23,10 @@ export class ProductsComponent {
     this.productsService.getAllProducts()
     .subscribe(data =>{
       console.log(data);
+      this.products = data;
     })
   }
-  
+
   onAddShoppingCart(product: Product) {
     this.storeService.addProduct(product);
     this.total = this.storeService.getTotal();
