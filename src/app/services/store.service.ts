@@ -14,6 +14,7 @@ export class StoreService {
   addProduct(product:Product){
     this.myShoppingCart.push(product);
     console.log(product);
+    
 
   }
   getTotal(){
