@@ -22,8 +22,12 @@ export class ProductComponent {
   }
 
   @Output() addProduct  = new EventEmitter<Product>()
+  @Output() showProduct  = new EventEmitter<string>()
 
   onAddCart(){
     this.addProduct.emit(this.product)
+  }
+  onShowdetail(){
+    this.showProduct.emit(this.product.id)
   }
 }

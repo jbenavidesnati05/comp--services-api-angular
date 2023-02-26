@@ -9,6 +9,8 @@ import { ImgComponent } from './components/img/img.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductsComponent } from './components/products/products.component';
 import { NavComponent } from './components/nav/nav.component';
+import { SwiperModule } from 'swiper/angular';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { NavComponent } from './components/nav/nav.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SwiperModule
   ],
   providers: [],
   bootstrap: [AppComponent]
