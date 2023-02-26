@@ -14,11 +14,13 @@ export class StoreService {
   addProduct(product:Product){
     this.myShoppingCart.push(product);
     console.log(product);
-    
-
   }
   getTotal(){
     return this.myShoppingCart.reduce((sum, item) => sum + item.price,0)
+  }
+
+  getMyShoppingCart(){
+    return this.myShoppingCart
   }
 
 }

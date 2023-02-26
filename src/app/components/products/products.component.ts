@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
+import { StoreService } from '../../services/store.service';
 
 @Component({
   selector: 'app-products',
@@ -7,7 +8,6 @@ import { Product } from 'src/app/models/product.model';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent {
-
   myShoppingCart:Product[] = [];
   total = 0;
   products:Product[] = [
@@ -36,10 +36,15 @@ export class ProductsComponent {
       image: 'https://picsum.photos/200'
     },
   ];
+  constructor(
+    private storeService: StoreService
+  ){
+      this.myShoppingCart = this.storeService.getMyShoppingCart();
+    }
+
   onAddShoppingCart(product:Product){
-    console.log(product);
-    this.myShoppingCart.push(product);
-    this.total = this.myShoppingCart.reduce((sum, item) => sum +item.price,0)
-    console.log(this.total);
+    this.storeService.addProduct(product);
+    this.total =  this.storeService.getTotal();
+
   }
 }
